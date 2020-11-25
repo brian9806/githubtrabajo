@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %} {% block title %} Actualizacion datos{% endblock %}
+{% block content %}
+<form action="{{ url_for('update') }}" method="POST">
+  <div class="title-page">
+    <h1>Actualizacion datos de usuario</h1>
+  </div>
+  <div  class="form-group">
+
+    <input type="text" hidden   value="{{usuarios[0][0]}}" id="identificador" name="identificador" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="nombres">Nombres</label>
+    <input type="text" value="{{usuarios[0][1]}}" id="nombres" name="nombres" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="apellidos">Apellidos</label>
+    <input type="text" value="{{usuarios[0][2]}}" id="apellidos" name="apellidos" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" value="{{usuarios[0][3]}}" id="email" name="email" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="password">Contraseña</label>
+    <input type="password" value="{{usuarios[0][4]}}" placeholder="Minimo 8 y maximo 15 caracteres" id="password" name="password" class="form-control" />
+  </div>
+  <div class="footer-page">
+    <a href="{{ url_for('usuarios') }}" class="btn">Volver</a>
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </div>
+</form>
+{% endblock %}
